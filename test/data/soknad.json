@@ -1,0 +1,81 @@
+{
+  "organisasjon": {
+    "stepName": "organisasjon",
+    "organisasjonsNummer": "0998374777",
+    "organisasjonsNavn": "Petters org",
+    "kontoNummer": "8923837373839",
+    "adresse": "Koldjdjkd edgdhd",
+    "kommune": "jdhkdh",
+    "fylke": "lkhdlchkhfdkdfhlhfkd",
+    "telefonNummer": "edehdhhdd",
+    "epost": "hdhdhdhd@ududd.no"
+  },
+  "completedSteps": [
+    "organisasjon",
+    "kontaktperson",
+    "formal",
+    "tiltak",
+    "finanser",
+    "target",
+    "artform",
+    "kategorier",
+    "collaboration",
+    "partners",
+    "samarbeidsparter"
+  ],
+  "kontaktperson": {
+    "stepName": "kontaktperson",
+    "navn": "Ole Bong",
+    "telefonNummer": "9293938384848",
+    "epost": "ddkdjdljd@bong.no"
+  },
+  "formal": {
+    "stepName": "formal",
+    "formal": "Bidra til kulturaktiviteter"
+  },
+  "kategorieridrett": false,
+  "kategorierfolkehelse": false,
+  "tiltak": {
+    "stepName": "tiltak",
+    "navn": "sbbdbdfdb",
+    "beskrivelse": "knsacdlnaslnsalnalsfkn\r\nfsasølfmfdømasfømasføasfømslnlvfnfdsv\r\ndfdfbfdbbngfbngnfgfnndngnsfgngndf",
+    "hvor": "Hjemme",
+    "startdato": "1971-11-18",
+    "sluttdato": "2016-06-30",
+    "antall": "En dag"
+  },
+  "finanser": {
+    "stepName": "finanser",
+    "soknadsSum": "92837848498",
+    "totalRamme": "3883484488",
+    "egneMidler": "980808080808",
+    "andreMidler": "809067986875687876"
+  },
+  "target": {
+    "stepName": "target",
+    "target": [
+      "Barn 0 - 12 år",
+      "Funksjonshemmede"
+    ]
+  },
+  "artform": {
+    "stepName": "artform",
+    "artform": "Litteratur"
+  },
+  "kategorier": {
+    "stepName": "kategorier",
+    "kategorier": "Publikasjon"
+  },
+  "collaboration": {
+    "stepName": "collaboration",
+    "samarbeid": "ja"
+  },
+  "partners": {
+    "stepName": "partners",
+    "partner": "private aktører"
+  },
+  "samarbeidsparter": {
+    "stepName": "samarbeidsparter",
+    "beskrivelse": "oifsdpisdpisdn fdsidsohifoihsdfo sdg sdoghodshodshosd hodsh osdh ogh osdg"
+  }
+}

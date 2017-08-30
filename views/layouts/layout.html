@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="no" dir="ltr">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+<meta name="description" content="Søknad om tilskudd">
+<meta name="author" content="Telemark fylkeskommune">
+<title>{{systemName}}</title>
+<!-- Foundation -->
+<link rel="stylesheet" href="public/css/foundation.css">
+<link rel="stylesheet" href="public/css/app.css">
+<!-- End Foundation -->
+<!-- Icons -->
+<link rel="icon" sizes="192x192" href="public/images/icons/chrome-touch-icon-192x192.png">
+<link rel="apple-touch-icon" href="public/images/icons/apple-touch-icon-precomposed.png">
+<link rel="shortcut icon" href="public/images/icons/favicon.ico">
+</head>
+<body>
+<div class="logo">
+    <a href="/" class="logo-link"><img src="public/images/logo/telemark.fylkeskommune.svg" /></a>
+</div>
+<div class="title-bar" data-responsive-toggle="top-menu" data-hide-for="medium">
+    <button class="menu-icon dark" type="button" data-toggle></button>
+    <div class="title-bar-title">Meny</div>
+</div>
+
+<div class="top-bar" id="top-menu">
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li><a href="/"><strong>Forsiden</strong></a></li>
+            <li><a href="/tilskuddsordningene"><strong>Om tilskuddsordningene</strong></a></li>
+            <li><a href="/kontakt"><strong>Kontakt</strong></a></li>
+            <li><a href="/personvern"><strong>Personvern</strong></a></li>
+            <li><a class="{{show-me inProgress}}" href="/logout"><strong>Logg av</strong></a></li>
+        </ul>
+    </div>
+</div>
+
+{{{content}}}
+
+<!-- Foundation-->
+<script src="public/js/vendor/jquery.js"></script>
+<script src="public/js/vendor/what-input.js"></script>
+<script src="public/js/vendor/foundation.js"></script>
+<script src="public/js/app.js"></script>
+<!-- End Foundation -->
+<!-- Piwik -->
+<script async defer src="https://piwik.service.t-fk.no/piwik.js"></script>
+<script src="public/js/piwik-tracker.js"></script>
+<noscript><p><img src="https://piwik.service.t-fk.no/piwik.php?idsite=5" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+</body>
+</html>

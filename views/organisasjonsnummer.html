@@ -1,0 +1,18 @@
+<div class="row">
+    <h1>Organisasjonsnummer</h1>
+    <form action="/init" method="post">
+        <input type="hidden" name="stepName" value="init">
+        <fieldset class="fieldset">
+            <legend>Organisasjonsnummer for søkerorganisasjonen</legend>
+            <label>Organisasjonsnummer
+                <input type="number" id="orgnr" name="orgnr" value="" required autofocus>
+                <p class="help-text" id="orgnrValid"></p>
+            </label>
+        </fieldset>
+        <div class="expanded button-group">
+            <button type="submit" title="Gå til neste punkt i søknaden" class="primary button expanded" id="nextButton"><h2>Neste</h2></button>
+        </div>
+    </form>
+</div>
+
+<script defer src="public/js/organization-number-validator.js"></script>

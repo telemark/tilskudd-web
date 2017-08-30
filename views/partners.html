@@ -1,0 +1,18 @@
+<div class="row">
+    <h1>Samarbeidspartnere</h1>
+    <form action="/next" method="post">
+        <input type="hidden" name="stepName" value="partners">
+        <fieldset class="fieldset">
+            <legend>Hvem samarbeider dere med?</legend>
+            <input type="checkbox" name="partner" value="offentlige aktører" id="partnersCheck01" {{checkbox-is-checked 'offentlige aktører' data.partner}}><label
+                for="partnersCheck01">Offentlige aktører</label><br />
+            <input type="checkbox" name="partner" value="private aktører" id="partnersCheck02"><label for="partnersCheck02" {{checkbox-is-checked 'private aktører' data.partner}}>Private aktører</label><br/>
+            <input type="checkbox" name="partner" value="frivillige aktører" id="partnersCheck03" {{checkbox-is-checked 'frivillige aktører' data.partner}}><label for="partnersCheck03">Frivillige aktører</label><br/>
+            <input type="checkbox" name="partner" value="ideelle aktører" id="partnersCheck04" {{checkbox-is-checked 'ideelle aktører' data.partner}}><label for="partnersCheck04">Ideelle aktører</label>
+        </fieldset>
+        {{{show-breadcrumbs crumbs}}}
+        {{>bottom-buttons}}
+    </form>
+</div>
+
+<script defer src="public/js/checkbox-is-required.js"></script>

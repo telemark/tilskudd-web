@@ -1,0 +1,14 @@
+<div class="row">
+    <h1>Samarbeidsparter</h1>
+    <form action="/next" method="post">
+        <input type="hidden" name="stepName" value="samarbeidsparter">
+        <fieldset class="fieldset">
+            <legend>Skriv navn på samarbeidsparter</legend>
+            <label>Navn på samarbeidsparter
+                <textarea id="beskrivelse" name="beskrivelse" required autofocus>{{data.beskrivelse}}</textarea>
+            </label>
+        </fieldset>
+        {{{show-breadcrumbs crumbs}}}
+        {{>bottom-buttons}}
+    </form>
+</div>

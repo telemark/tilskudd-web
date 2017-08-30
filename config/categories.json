@@ -1,0 +1,130 @@
+{
+  "Billedkunst": [
+    {
+      "id":"101",
+      "description": "Utstilling"
+    },
+    {
+      "id":"102",
+      "description": "Seminar"
+    },
+    {
+      "id":"103",
+      "description": "Publikasjon"
+    }
+  ],
+  "Litteratur": [
+    {
+      "id":"201",
+      "description": "Festival"
+    },
+    {
+      "id":"202",
+      "description": "Publikasjon"
+    }
+  ],
+  "Film": [
+    {
+      "id":"303",
+      "description": "Film"
+    },
+    {
+      "id":"303",
+      "description": "Festival"
+    }
+  ],
+  "Scenekunst": [
+    {
+      "id":"401",
+      "description": "Teater"
+    },
+    {
+      "id":"402",
+      "description": "Dans"
+    },
+    {
+      "id":"403",
+      "description": "Forestilling"
+    },
+    {
+      "id":"404",
+      "description": "Workshop"
+    },
+    {
+      "id":"405",
+      "description": "Involvering av barn og unge"
+    },
+    {
+      "id":"406",
+      "description": "Talentutvikling"
+    }
+  ],
+  "Musikk": [
+    {
+      "id":"501",
+      "description": "Festival"
+    },
+    {
+      "id":"502",
+      "description": "Konsert"
+    },
+    {
+      "id":"503",
+      "description": "Seminar/workshop"
+    },
+    {
+      "id":"504",
+      "description": "Involvering av barn og unge"
+    },
+    {
+      "id":"505",
+      "description": "Talentutvikling"
+    }
+  ],
+  "Kulturarv": [
+    {
+      "id":"601",
+      "description": "Seminar"
+    },
+    {
+      "id":"602",
+      "description": "Publikasjon"
+    }
+  ],
+  "Idrett": [
+    {
+      "id":"701",
+      "description": "Idrettsarrangement"
+    },
+    {
+      "id":"702",
+      "description": "Talentutvikling"
+    },
+    {
+      "id":"703",
+      "description": "Økt fysisk aktivitet"
+    },
+    {
+      "id":"704",
+      "description": "Annet idrettstiltak"
+    }
+  ],
+  "Folkehelse": [
+    {
+      "id":"801",
+      "description": "Bedre psykisk helse"
+    },
+    {
+      "id":"802",
+      "description": "Økt fysisk aktivitet"
+    },
+    {
+      "id":"803",
+      "description": "Inkluderende møteplasser"
+    },
+    {
+      "id":"804",
+      "description": "Annet folkehelsearbeid"
+    }
+  ]
+}

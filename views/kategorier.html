@@ -1,0 +1,17 @@
+<div class="row">
+    <h1>Beskrivelse</h1>
+    <form action="/next" method="post">
+        <input type="hidden" name="stepName" value="kategorier">
+        <fieldset class="fieldset">
+            <legend>Hva beskriver arrangementet/tiltaket best?</legend>
+            {{#each categories}}
+            <input type="checkbox" name="beskrivelse" value="{{description}}" id="kategorierCheck{{id}}" {{checkbox-is-checked description ../data.beskrivelse}}><label
+                for="kategorierCheck{{id}}">{{description}}</label><br/>
+            {{/each}}
+        </fieldset>
+        {{{show-breadcrumbs crumbs}}}
+        {{>bottom-buttons}}
+    </form>
+</div>
+
+<script defer src="public/js/checkbox-is-required.js"></script>

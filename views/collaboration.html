@@ -1,0 +1,13 @@
+<div class="row">
+    <h1>Samarbeid</h1>
+    <form action="/next" method="post">
+        <input type="hidden" name="stepName" value="collaboration">
+        <fieldset class="fieldset">
+            <legend>Er dette i samarbeid med andre?</legend>
+            <input type="radio" name="samarbeid" value="ja" id="collaborationRadio01" required {{radio-is-checked 'ja' data.samarbeid}}><label for="collaborationRadio01">Ja</label>
+            <input type="radio" name="samarbeid" value="nei" id="collaborationRadio02" {{radio-is-checked 'nei' data.samarbeid}}><label for="collaborationRadio02">Nei</label>
+        </fieldset>
+        {{{show-breadcrumbs crumbs}}}
+        {{>bottom-buttons}}
+    </form>
+</div>

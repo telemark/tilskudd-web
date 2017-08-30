@@ -1,0 +1,23 @@
+<div class="row">
+    <h1>Se over</h1>
+    <form action="/submit" method="post">
+        <input type="hidden" name="stepName" value="seover">
+        <fieldset class="fieldset">
+            <legend>Sjekk at alt stemmer</legend>
+            <h2>Søker</h2>
+            <h3>Organisasjon</h3>
+            {{{show-organisasjon document}}}
+            <h3>Kontaktperson</h3>
+            {{{show-kontaktperson document}}}
+            <h2>Tiltak/arrangement</h2>
+            {{{show-tiltak document}}}
+        </fieldset>
+        {{{show-breadcrumbs crumbs}}}
+        <div class="expanded button-group">
+            <a href="/cleanup" title="Avbryt søknaden" id="cancelButton" class="alert button"><h2>Avbryt søknaden</h2></a>
+            <button type="submit" title="Send inn søknaden" class="primary button"><h2>Send inn søknaden</h2></button>
+        </div>
+    </form>
+</div>
+
+<script defer src="public/js/warn-if-cancel.js"></script>

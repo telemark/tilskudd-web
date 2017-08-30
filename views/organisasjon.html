@@ -1,0 +1,32 @@
+<div class="row">
+    <h1 class="margin-bottom-10">Organisasjonen</h1>
+        <form action="/next" method="post">
+        <input type="hidden" name="stepName" value="organisasjon">
+        <fieldset class="fieldset">
+            <legend>Informasjon om organisasjonen</legend>
+            <label>Organisasjonsnummer
+                <input type="number" id="organisasjonsnummer" name="organisasjonsNummer" value="{{data.organisasjonsNummer}}" readonly>
+            </label>
+            <label>Organisasjonens kontonummer
+                <input type="number" id="kontonummer" name="kontoNummer" value="{{data.kontoNummer}}" required autofocus>
+                <p class="help-text" id="kontonummerValid"></p>
+            </label>
+            <label>Hva heter organisasjonen?
+                <input type="text" id="organisasjonsnavn" name="organisasjonsNavn" value="{{data.organisasjonsNavn}}" readonly>
+            </label>
+            <label>Organisasjonens adresse
+                <input type="text" id="adresse" name="adresse" value="{{data.adresse}}" readonly>
+            </label>
+            <label>Organisasjonens telefonnummer
+                <input type="tel" id="telefonnummer" name="telefonNummer" value="{{data.telefonNummer}}" readonly>
+            </label>
+            <label>Organisasjonens e-postadresse
+                <input type="email" id="epost" name="epost" value="{{data.epost}}">
+            </label>
+        </fieldset>
+        {{{show-breadcrumbs crumbs}}}
+        {{>bottom-buttons}}
+    </form>
+</div>
+
+<script defer src="public/js/account-number-validator.js"></script>

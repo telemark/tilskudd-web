@@ -1,0 +1,18 @@
+<div class="row">
+    <h1>Bidrag</h1>
+    <form action="/next" method="post">
+        <input type="hidden" name="stepName" value="bidrag">
+        <fieldset class="fieldset">
+            <legend>Hvordan bidrar samarbeidspartene?</legend>
+            <input type="checkbox" name="bidrag" value="Midler" id="bidragCheck01" {{checkbox-is-checked 'Midler' data.bidrag}}><label
+                for="bidragCheck01">Midler</label><br />
+            <input type="checkbox" name="bidrag" value="Utstyr" id="bidragCheck02" {{checkbox-is-checked 'Utstyr' data.bidrag}}><label for="bidragCheck02">Utstyr</label><br/>
+            <input type="checkbox" name="bidrag" value="Lokaler" id="bidragCheck03" {{checkbox-is-checked 'Lokaler' data.bidrag}}><label for="bidragCheck03">Lokaler</label><br/>
+            <input type="checkbox" name="bidrag" value="Frivillighet eller frivillig arbeid" id="bidragCheck04" {{checkbox-is-checked 'Frivillighet eller frivillig arbeid' data.bidrag}}><label for="bidragCheck04">Frivillighet eller frivillig arbeid</label>
+        </fieldset>
+        {{{show-breadcrumbs crumbs}}}
+        {{>bottom-buttons}}
+    </form>
+</div>
+
+<script defer src="public/js/checkbox-is-required.js"></script>

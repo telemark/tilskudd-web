@@ -1,0 +1,24 @@
+<div class="row">
+    <h1>Målgruppe</h1>
+    <form action="/next" method="post">
+        <input type="hidden" name="stepName" value="target">
+        <fieldset class="fieldset">
+            <legend>Hvem er målgruppen for tiltaket?</legend>
+            <input type="checkbox" name="target" value="Alle aldre" id="targetCheck01" {{checkbox-is-checked 'Alle aldre' data.target}}><label
+                for="targetCheck01">Alle aldre</label><br/>
+            <input type="checkbox" name="target" value="Barn 0 - 12 år" id="targetCheck02" {{checkbox-is-checked 'Barn 0 - 12 år' data.target}}><label
+                for="targetCheck02">Barn 0 - 12 år</label><br/>
+            <input type="checkbox" name="target" value="Ungdom 12 - 25 år" id="targetCheck03" {{checkbox-is-checked 'Ungdom 12 - 25 år' data.target}}><label
+                for="targetCheck03">Ungdom 12 - 25 år</label><br/>
+            <input type="checkbox" name="target" value="Voksne" id="targetCheck04" {{checkbox-is-checked 'Voksne' data.target}}><label
+                for="targetCheck04">Voksne</label><br/>
+            <input type="checkbox" name="target" value="Eldre" id="targetCheck05" {{checkbox-is-checked 'Eldre' data.target}}><label for="targetCheck05">Eldre</label><br/>
+            <input type="checkbox" name="target" value="Minoritetsgrupper" id="targetCheck06" {{checkbox-is-checked 'Minoritetsgrupper' data.target}}><label for="targetCheck06">Minoritetsgrupper</label><br/>
+            <input type="checkbox" name="target" value="Personer med nedsatt funksjonsevne" id="targetCheck07" {{checkbox-is-checked 'Personer med nedsatt funksjonsevne' data.target}}><label for="targetCheck07">Personer med nedsatt funksjonsevne</label>
+        </fieldset>
+        {{{show-breadcrumbs crumbs}}}
+        {{>bottom-buttons}}
+    </form>
+</div>
+
+<script defer src="public/js/checkbox-is-required.js"></script>

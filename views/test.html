@@ -1,0 +1,52 @@
+<div class="row">
+    <h1 class="margin-bottom-10">Testoppsett</h1>
+    <form action="/test" method="post">
+        <input type="hidden" name="stepName" value="testoppsett">
+        <fieldset class="fieldset">
+            <legend>Organisasjonen</legend>
+            <label>Organisasjonsnummer
+                <input type="number" id="organisasjonsnummer" name="organisasjonsNummer" value="940192226">
+            </label>
+            <label>Navn
+                <input type="text" id="organisasjonsnavn" name="organisasjonsNavn" value="TELEMARK FYLKESKOMMUNE">
+            </label>
+            <label>Postadresse
+                <input type="text" id="postadresse" name="postadresse" value="Postboks 2844">
+            </label>
+            <label>Postnummer
+                <input type="text" id="ppostnr" name="ppostnr" value="3702">
+            </label>
+            <label>Poststed
+                <input type="text" id="ppoststed" name="ppoststed" value="SKIEN">
+            </label>
+            <label>Forretningsadresse
+                <input type="text" id="forretningsadr" name="forretningsadr" value="Fylkesbakken 10">
+            </label>
+            <label>Forretningspostnummer
+                <input type="text" id="forradrpostnr" name="forradrpostnr" value="3715">
+            </label>
+            <label>Forretningspoststed
+                <input type="text" id="forradrpoststed" name="forradrpoststed" value="SKIEN">
+            </label>
+            <label>Telefonnummer
+                <input type="tel" id="telefonnummer" name="telefonNummer" value="35 91 70 00">
+            </label>
+            <label>Mobilnummer
+                <input type="tel" id="mobilnummer" name="mobilNummer">
+            </label>
+        </fieldset>
+        <fieldset class="fieldset">
+            <legend>Informasjon om deg som søker</legend>
+            <label>Navn
+                <input type="text" id="personnavn" name="personnavn" value="Botolf The Magical Bot">
+            </label>
+            <label>Telefonnummer
+                <input type="text" id="persontelefonnummer" name="persontelefonNummer" value="12 98 65 34">
+            </label>
+            <label>E-post
+                <input type="text" id="personepost" name="personepost" value="botolf@t-fk.no">
+            </label>
+        </fieldset>
+        {{>bottom-buttons}}
+    </form>
+</div>

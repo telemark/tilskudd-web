@@ -1,0 +1,50 @@
+[
+  {
+    "id": "organisasjon",
+    "name": "Organisasjon"
+  },
+  {
+    "id": "kontaktperson",
+    "name": "Kontaktperson"
+  },
+  {
+    "id": "formal",
+    "name": "Ordning"
+  },
+  {
+    "id": "artform",
+    "name": "Kategori"
+  },
+  {
+    "id": "kategorier",
+    "name": "Beskrivelse"
+  },
+  {
+    "id": "target",
+    "name": "Målgruppe"
+  },
+  {
+    "id": "tiltak",
+    "name": "Tiltak"
+  },
+  {
+    "id": "collaboration",
+    "name": "Samarbeid"
+  },
+  {
+    "id": "partners",
+    "name": "Partnere"
+  },
+  {
+    "id": "samarbeidsparter",
+    "name": "Navn"
+  },
+  {
+    "id": "finanser",
+    "name": "Økonomi"
+  },
+  {
+    "id": "bidrag",
+    "name": "Bidrag"
+  }
+]

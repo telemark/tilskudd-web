@@ -1,0 +1,32 @@
+<div class="row">
+    <h1>Informasjon</h1>
+    <form action="/next" method="post">
+        <input type="hidden" name="stepName" value="tiltak">
+        <fieldset class="fieldset">
+            <legend>Litt om tiltaket/arrangementet</legend>
+            <label>Navn på tiltaket/arrangementet
+                <input type="text" id="navn" name="navn" value="{{data.navn}}" required autofocus>
+            </label>
+            <label>Beskrivelse av tiltaket/arrangementet
+                <textarea id="beskrivelse" name="beskrivelse" required maxlength="1000">{{data.beskrivelse}}</textarea>
+                <p class="help-text">Du har <span id="tegnIgjen">???</span> tegn igjen</p>
+            </label>
+            <label>Sted for arrangement
+                <input type="text" id="hvor" name="hvor" value="{{data.hvor}}" required>
+            </label>
+            <label>Startdato
+                <input type="date" id="startdato" name="startdato" required>
+            </label>
+            <label>Sluttdato
+                <input type="date" id="sluttdato" name="sluttdato" required>
+            </label>
+            <input type="radio" name="antall" value="En dag" id="antallRadio01" required  {{radio-is-checked 'En dag' data.antall}}><label for="antallRadio01">En dag/ett arrangement</label><br/>
+            <input type="radio" name="antall" value="Flere dager" id="antallRadio02" {{radio-is-checked 'En dag' data.antall}}><label for="antallRadio02">Flere dager/arrangementer</label><br/>
+        </fieldset>
+        {{{show-breadcrumbs crumbs}}}
+        {{>bottom-buttons}}
+    </form>
+</div>
+
+<script defer src="public/js/word-counter.js"></script>
+<script defer src="public/js/vendor/date-input-polyfill.dist.js"></script>

@@ -1,0 +1,24 @@
+<div class="row">
+    <h1>Økonomi</h1>
+    <form action="/next" method="post">
+        <input type="hidden" name="stepName" value="finanser">
+        Forenklet budsjettoversikt. Fyll inn tall i hele kroner.
+        <fieldset class="fieldset">
+            <legend>Finansiering</legend>
+            <label>Søkebeløp
+                <input type="number" id="soknadssum" name="soknadsSum" value="{{data.soknadsSum}}" required autofocus>
+            </label>
+            <label>Total kostnadsramme
+                <input type="number" id="totalramme" name="totalRamme" value="{{data.totalRamme}}" required>
+            </label>
+            <label>Egne midler
+                <input type="number" id="egnemidler" name="egneMidler" value="{{data.egneMidler}}" required>
+            </label>
+            <label>Andre midler (søkt om eller innvilget)
+                <input type="number" id="andremidler" name="andreMidler" value="{{data.andreMidler}}" required>
+            </label>
+        </fieldset>
+        {{{show-breadcrumbs crumbs}}}
+        {{>bottom-buttons}}
+    </form>
+</div>
