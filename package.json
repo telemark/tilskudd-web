@@ -43,7 +43,9 @@
     ],
     "type": "npm",
     "env": {
-      "NODE_ENV": "production"
+      "NODE_ENV": "production",
+      "PAPERTRAIL_HOST": "@tfk-papertrail-host",
+      "PAPERTRAIL_PORT": "@tfk-papertrail-port"
     }
   },
   "louie": {
