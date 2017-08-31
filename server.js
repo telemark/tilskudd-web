@@ -1,30 +1,19 @@
 'use strict'
 
 const Hapi = require('hapi')
-const Chairo = require('chairo')
-const Mesh = require('seneca-mesh')
 const Blankie = require('blankie')
 const Scooter = require('scooter')
-const Good = require('good')
 const Yar = require('yar')
-const hapiAuthCookie = require('hapi-auth-cookie-issamesite-patch')
+const hapiAuthCookie = require('hapi-auth-cookie')
 const hapiAuthJwt2 = require('hapi-auth-jwt2')
-const Seneca = require('seneca')()
 const vision = require('vision')
 const inert = require('inert')
-const senecaQueue = require('tfk-seneca-queue-mongodb')
 const server = new Hapi.Server()
 const config = require('./config')
 const tilskuddService = require('./index')
 const validateSession = require('./lib/validate-session')
 const validateApi = require('./lib/validate-api')
-const senecaPing = require('./lib/seneca-ping')
-
-const meshOptions = {
-  auto: true,
-  host: process.env.TILSKUDD_WEB_HOST || '127.0.0.1',
-  bases: [process.env.TILSKUDD_BASE_HOST || '127.0.0.1:39999']
-}
+const logger = require('./lib/logger')
 
 const blankieOptions = {
   styleSrc: ['https://fonts.googleapis.com', 'https://code.getmdl.io', 'unsafe-inline', 'self'],
@@ -43,21 +32,6 @@ const yarOptions = {
   }
 }
 
-const goodOptions = {
-  ops: {
-    interval: 900000
-  },
-  reporters: {
-    console: [{
-      module: 'good-squeeze',
-      name: 'Squeeze',
-      args: [{log: '*', ops: '*', error: '*', response: '*'}]
-    }, {
-      module: 'good-console'
-    }, 'stdout']
-  }
-}
-
 server.connection({
   port: config.SERVER_PORT
 })
@@ -66,8 +40,6 @@ const plugins = [
   {register: Scooter},
   {register: Blankie, options: blankieOptions},
   {register: Yar, options: yarOptions},
-  {register: Good, options: goodOptions},
-  {register: Chairo, options: {seneca: Seneca}},
   {register: vision},
   {register: inert},
   {register: hapiAuthCookie},
@@ -76,7 +48,7 @@ const plugins = [
 
 server.register(plugins, error => {
   if (error) {
-    console.error('Failed to load a plugin:', error)
+    logger('error', ['server', 'register', 'plugins', error])
   }
 
   server.views({
@@ -123,10 +95,6 @@ server.register(plugins, error => {
   })
 
   registerRoutes()
-
-  server.seneca.use(Mesh, meshOptions)
-  server.seneca.use(senecaPing)
-  server.seneca.use(senecaQueue, {MONGODB_URI: config.QUEUE_SERVER})
 })
 
 function registerRoutes () {
@@ -135,21 +103,21 @@ function registerRoutes () {
       register: tilskuddService,
       options: {}
     }
-  ], function (err) {
-    if (err) {
-      console.error('Failed to load a plugin:', err)
+  ], function (error) {
+    if (error) {
+      logger('error', ['server', 'registerRoutes', error])
     }
   })
 }
 
 module.exports.start = () => {
   server.start(() => {
-    console.log('Server running at:', server.info.uri)
+    logger('info', ['server', 'start', server.info.uri])
   })
 }
 
 module.exports.stop = () => {
   server.stop(() => {
-    console.log('Server stopped')
+    logger('info', 'server', 'stop', 'server stopped')
   })
 }

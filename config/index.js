@@ -4,7 +4,7 @@ const envs = process.env
 
 module.exports = {
   SERVER_PORT: envs.WEB_SERVER_PORT || 8000,
-  ENCRYPTOR_KEY: envs.ENCRYPTOR_SECRET || 'Louie Louie, oh no, I got to go. Louie Louie, oh no, I got to go',
+  ENCRYPTOR_SECRET: envs.ENCRYPTOR_SECRET || 'Louie Louie, oh no, I got to go. Louie Louie, oh no, I got to go',
   COOKIE_SECRET: envs.COOKIE_SECRET || 'Louie Louie, oh no, I got to go. Louie Louie, oh no, I got to go',
   JWT_SECRET: envs.JWT_SECRET || 'Louie Louie, oh no, I got to go. Louie Louie, oh no, I got to go',
   YAR_SECRET: envs.YAR_SECRET || 'Louie Louie, oh no, I got to go. Louie Louie, oh no, I got to go',
