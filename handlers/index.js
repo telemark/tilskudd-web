@@ -6,7 +6,6 @@ const encryptor = require('simple-encryptor')(config.ENCRYPTOR_SECRET)
 const pkg = require('../package.json')
 const repackBrreg = require('../lib/repack-brreg')
 const repackKontaktinfo = require('../lib/repack-kontaktinfo')
-const getSessionData = require('../lib/get-session-data')
 const generateApplicantId = require('../lib/generate-applicant-id')
 const logger = require('../lib/logger')
 
@@ -105,20 +104,14 @@ module.exports.start = async (request, reply) => {
   const yar = request.yar
   const receivedToken = request.query.jwt
   const jwtDecrypted = jwt.verify(receivedToken, config.JWT_SECRET)
-  const jwtData = encryptor.decrypt(jwtDecrypted.data)
-
-  const sessionUrl = `${config.SESSIONS_SERVICE}/storage/${jwtData.session}`
-  const data = await getSessionData(sessionUrl)
-  const applicantId = generateApplicantId(data.dsfData)
-
-  logger('info', ['index', 'start', applicantId, 'got data'])
+  const data = encryptor.decrypt(jwtDecrypted.data)
 
   const tokenOptions = {
     expiresIn: '1h',
     issuer: 'https://auth.t-fk.no'
   }
 
-  const token = jwt.sign(data.dsfData, config.JWT_SECRET, tokenOptions)
+  const token = jwt.sign(data, config.JWT_SECRET, tokenOptions)
 
   const dsfData = data.dsfData
   const korData = data.korData
@@ -126,6 +119,9 @@ module.exports.start = async (request, reply) => {
   const dsfError = data.dsfError
   const korError = data.korError
   const trouble = (dsfError || korError) || (!dsfData || !korData || !brregData)
+  const applicantId = generateApplicantId(dsfData)
+
+  logger('info', ['index', 'start', applicantId, 'got data'])
 
   yar.reset()
   yar.set('dsfData', dsfData)
@@ -150,7 +146,6 @@ module.exports.start = async (request, reply) => {
     yar.set('kontaktperson', repackKontaktinfo(data))
 
     logger('info', ['index', 'start', applicantId, 'success'])
-
     reply.redirect('/organisasjon')
   }
 }

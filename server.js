@@ -33,7 +33,7 @@ const yarOptions = {
 }
 
 server.connection({
-  port: config.SERVER_PORT
+  port: config.WEB_SERVER_PORT
 })
 
 const plugins = [
