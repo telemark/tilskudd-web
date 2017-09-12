@@ -41,10 +41,7 @@
     "alias": [
       "tilskudd.tjeneste.win"
     ],
-    "type": "npm",
-    "env": {
-      "NODE_ENV": "production"
-    }
+    "type": "npm"
   },
   "louie": {
     "versionName": "Australian Crawl",
