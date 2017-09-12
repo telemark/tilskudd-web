@@ -21,7 +21,7 @@
     "standard-fix": "standard --fix",
     "start": "node standalone.js",
     "dev": "NODE_ENV=development node standalone.js",
-    "now-deploy": "npm test && now --npm && now alias"
+    "now-deploy": "npm test && now --npm -E production.env && now alias"
   },
   "keywords": [
     "tilskudd",
