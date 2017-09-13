@@ -21,6 +21,8 @@ module.exports.showFrontpage = (request, reply) => {
     githubUrl: pkg.repository.url
   }
 
+  logger('info', ['index', 'showFrontpage'])
+
   reply.view('index', viewOptions)
 }
 
@@ -35,6 +37,8 @@ module.exports.showKontaktpage = (request, reply) => {
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url
   }
+
+  logger('info', ['index', 'showKontaktpage'])
 
   reply.view('kontakt', viewOptions)
 }
@@ -51,6 +55,8 @@ module.exports.showPersonvernpage = (request, reply) => {
     githubUrl: pkg.repository.url
   }
 
+  logger('info', ['index', 'showPersonvernpage'])
+
   reply.view('personvern', viewOptions)
 }
 
@@ -65,6 +71,8 @@ module.exports.showTilskuddpage = (request, reply) => {
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url
   }
+
+  logger('info', ['index', 'showTilskuddpage'])
 
   reply.view('tilskuddsordningene', viewOptions)
 }
@@ -81,6 +89,8 @@ module.exports.showIkkefunnetpage = (request, reply) => {
     githubUrl: pkg.repository.url
   }
 
+  logger('warn', ['index', 'showIkkefunnetpage'])
+
   reply.view('ikkefunnet', viewOptions)
 }
 
@@ -95,6 +105,8 @@ module.exports.showOrganisasjonsnummerpage = (request, reply) => {
     systemName: pkg.louie.systemName,
     githubUrl: pkg.repository.url
   }
+
+  logger('info', ['index', 'showOrganisasjonsnummerPage'])
 
   reply.view('organisasjonsnummer', viewOptions)
 }
@@ -146,6 +158,7 @@ module.exports.start = async (request, reply) => {
     yar.set('kontaktperson', repackKontaktinfo(data))
 
     logger('info', ['index', 'start', applicantId, 'success'])
+
     reply.redirect('/organisasjon')
   }
 }
