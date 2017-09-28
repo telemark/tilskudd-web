@@ -1,7 +1,7 @@
 {
   "name": "tilskudd-web",
   "description": "Løsning for søknader om tilskudd",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "private": true,
   "author": {
@@ -21,7 +21,7 @@
     "standard-fix": "standard --fix",
     "start": "node standalone.js",
     "dev": "NODE_ENV=development node standalone.js",
-    "now-deploy": "npm test && now --npm -E production.env && now alias"
+    "now-deploy": "npm test && now --npm && now alias"
   },
   "keywords": [
     "tilskudd",
@@ -41,7 +41,8 @@
     "alias": [
       "tilskudd.tjeneste.win"
     ],
-    "type": "npm"
+    "type": "npm",
+    "dotenv": "production.env"
   },
   "louie": {
     "versionName": "Australian Crawl",
