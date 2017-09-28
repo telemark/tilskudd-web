@@ -1,7 +1,7 @@
 {
   "name": "tilskudd-web",
   "description": "Løsning for søknader om tilskudd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "private": true,
   "author": {
@@ -11,7 +11,7 @@
   },
   "main": "index.js",
   "engines": {
-    "node": ">=8.5.0"
+    "node": ">=8.6.0"
   },
   "scripts": {
     "test": "standard && nsp check && tap --reporter=spec test/**/*.js",
@@ -54,8 +54,8 @@
     ]
   },
   "devDependencies": {
-    "coveralls": "2.13.1",
-    "nsp": "2.8.0",
+    "coveralls": "2.13.2",
+    "nsp": "2.8.1",
     "standard": "10.0.3",
     "tap": "10.7.2"
   },
@@ -63,7 +63,7 @@
     "axios": "0.16.2",
     "blankie": "2.1.0",
     "handlebars": "4.0.10",
-    "hapi": "16.6.0",
+    "hapi": "16.6.2",
     "hapi-auth-cookie": "7.0.0",
     "hapi-auth-jwt2": "7.3.0",
     "inert": "4.2.1",
