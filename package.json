@@ -1,7 +1,7 @@
 {
   "name": "tilskudd-web",
   "description": "Løsning for søknader om tilskudd",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "private": true,
   "author": {
@@ -11,7 +11,7 @@
   },
   "main": "index.js",
   "engines": {
-    "node": ">=8.6.0"
+    "node": ">=8.7.0"
   },
   "scripts": {
     "test": "standard && nsp check && tap --reporter=spec test/**/*.js",
@@ -31,7 +31,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/telemark/tilskudd-web.git"
+    "url": "git+https://github.com/telemark/tilskudd-web.git"
   },
   "bugs": {
     "url": "https://github.com/telemark/tilskudd-web/issues"
@@ -55,24 +55,24 @@
     ]
   },
   "devDependencies": {
-    "coveralls": "2.13.2",
+    "coveralls": "3.0.0",
     "nsp": "2.8.1",
     "standard": "10.0.3",
     "tap": "10.7.2"
   },
   "dependencies": {
     "axios": "0.16.2",
-    "blankie": "2.1.0",
+    "blankie": "3.0.0",
     "handlebars": "4.0.10",
     "hapi": "16.6.2",
     "hapi-auth-cookie": "7.0.0",
     "hapi-auth-jwt2": "7.3.0",
     "inert": "4.2.1",
-    "jsonwebtoken": "8.0.1",
+    "jsonwebtoken": "8.1.0",
     "scooter": "4.0.0",
-    "simple-encryptor": "1.1.0",
+    "simple-encryptor": "1.1.1",
     "vision": "4.1.1",
-    "winston": "2.3.1",
+    "winston": "2.4.0",
     "winston-papertrail": "1.0.5",
     "yar": "8.1.2"
   }
