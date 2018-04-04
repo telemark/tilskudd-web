@@ -1,5 +1,3 @@
-'use strict'
-
 const routes = require('./routes')
 const testRoutes = require('./routes/test')
 const soknadRoutes = require('./routes/soknad')
