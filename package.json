@@ -1,7 +1,7 @@
 {
   "name": "tilskudd-web",
   "description": "Løsning for søknader om tilskudd",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "private": true,
   "author": {
