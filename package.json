@@ -38,16 +38,6 @@
     "url": "https://github.com/telemark/tilskudd-web/issues"
   },
   "homepage": "https://github.com/telemark/tilskudd-web#readme",
-  "now": {
-    "alias": [
-      "tilskudd.tjeneste.win"
-    ],
-    "type": "npm",
-    "dotenv": "production.env",
-    "engines": {
-      "node": "10.4.0"
-    }
-  },
   "louie": {
     "versionName": "Australian Crawl",
     "versionVideoUrl": "https://www.youtube.com/watch?v=URgPL9AjkbQ",

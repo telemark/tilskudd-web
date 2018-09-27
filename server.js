@@ -1,5 +1,3 @@
-'use strict'
-
 const Hapi = require('hapi')
 const Blankie = require('blankie')
 const Scooter = require('scooter')

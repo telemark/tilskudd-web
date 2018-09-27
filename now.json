@@ -1,0 +1,11 @@
+{
+  "name": "tilskudd-web",
+  "alias": [
+    "tilskudd.tjeneste.win"
+  ],
+  "type": "docker",
+  "dotenv": "production.env",
+  "features": {
+    "cloud": "v2"
+  }
+}
