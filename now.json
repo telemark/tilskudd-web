@@ -6,7 +6,7 @@
   "type": "docker",
   "dotenv": "production.env",
   "limits": {
-    "timeout": 9000000
+    "timeout": 900000
   },
   "features": {
     "cloud": "v2"
