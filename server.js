@@ -37,13 +37,13 @@ server.connection({
 })
 
 const plugins = [
-  {register: Scooter},
-  {register: Blankie, options: blankieOptions},
-  {register: Yar, options: yarOptions},
-  {register: vision},
-  {register: inert},
-  {register: hapiAuthCookie},
-  {register: hapiAuthJwt2}
+  { register: Scooter },
+  { register: Blankie, options: blankieOptions },
+  { register: Yar, options: yarOptions },
+  { register: vision },
+  { register: inert },
+  { register: hapiAuthCookie },
+  { register: hapiAuthJwt2 }
 ]
 
 server.register(plugins, error => {
