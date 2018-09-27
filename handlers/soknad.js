@@ -1,5 +1,3 @@
-'use strict'
-
 const config = require('../config')
 const pkg = require('../package.json')
 const getCategories = require('../lib/get-categories')
@@ -11,17 +9,17 @@ const generateBreadCrumbs = require('../lib/generate-breadcrumb')
 const saveApplication = require('../lib/save-application')
 const logger = require('../lib/logger')
 
-module.exports.doInit = (request, reply) => {
+module.exports.doInit = async (request, h) => {
   const payload = request.payload
   const orgNr = payload.orgnr
   const url = `${config.AUTH_LOGIN_URL}/${orgNr}`
 
   logger('info', ['soknad', 'doInit', 'orgNr', orgNr, 'url', url])
 
-  reply.redirect(url)
+  return h.redirect(url)
 }
 
-module.exports.getNextStep = (request, reply) => {
+module.exports.getNextStep = async (request, h) => {
   const payload = request.payload
   const yar = request.yar
   const applicantId = yar.get('applicantId')
@@ -44,16 +42,16 @@ module.exports.getNextStep = (request, reply) => {
 
   if (validatedContactInfo) {
     if (nextForm === cameFrom) {
-      reply.redirect('/previous')
+      return h.redirect('/previous')
     } else {
-      reply.redirect('/' + nextForm)
+      return h.redirect('/' + nextForm)
     }
   } else {
-    reply.redirect('/kontaktperson')
+    return h.redirect('/kontaktperson')
   }
 }
 
-module.exports.getPreviousStep = (request, reply) => {
+module.exports.getPreviousStep = async (request, h) => {
   const yar = request.yar
   const applicantId = yar.get('applicantId')
   let completedSteps = yar.get('completedSteps')
@@ -61,13 +59,13 @@ module.exports.getPreviousStep = (request, reply) => {
   if (completedSteps) {
     const previousStep = completedSteps.pop()
     yar.set('completedSteps', completedSteps)
-    reply.redirect('/' + previousStep)
+    return h.redirect('/' + previousStep)
   } else {
-    reply.redirect('/')
+    return h.redirect('/')
   }
 }
 
-module.exports.getPartOrganisasjon = (request, reply) => {
+module.exports.getPartOrganisasjon = async (request, h) => {
   const yar = request.yar
   const data = yar.get('organisasjon') || {}
   const applicantId = yar.get('applicantId')
@@ -84,10 +82,10 @@ module.exports.getPartOrganisasjon = (request, reply) => {
     logoutUrl: config.AUTH_LOGOUT_URL
   }
   logger('info', ['soknad', 'getPartOrganisasjon', 'applicantId', applicantId])
-  reply.view('organisasjon', viewOptions)
+  return h.view('organisasjon', viewOptions)
 }
 
-module.exports.getPartKontaktperson = (request, reply) => {
+module.exports.getPartKontaktperson = async (request, h) => {
   const yar = request.yar
   const data = yar.get('kontaktperson') || {}
   const inProgress = yar.get('inProgress')
@@ -105,10 +103,10 @@ module.exports.getPartKontaktperson = (request, reply) => {
     logoutUrl: config.AUTH_LOGOUT_URL
   }
   logger('info', ['soknad', 'getPartKontaktperson', 'applicantId', applicantId])
-  reply.view('kontaktperson', viewOptions)
+  return h.view('kontaktperson', viewOptions)
 }
 
-module.exports.getPartFormal = (request, reply) => {
+module.exports.getPartFormal = async (request, h) => {
   const yar = request.yar
   const data = yar.get('formal') || {}
   const inProgress = yar.get('inProgress')
@@ -125,10 +123,10 @@ module.exports.getPartFormal = (request, reply) => {
     logoutUrl: config.AUTH_LOGOUT_URL
   }
   logger('info', ['soknad', 'getPartFormal', 'applicantId', applicantId])
-  reply.view('formal', viewOptions)
+  return h.view('formal', viewOptions)
 }
 
-module.exports.getPartTarget = (request, reply) => {
+module.exports.getPartTarget = async (request, h) => {
   const yar = request.yar
   const data = yar.get('target') || {}
   const inProgress = yar.get('inProgress')
@@ -145,10 +143,10 @@ module.exports.getPartTarget = (request, reply) => {
     logoutUrl: config.AUTH_LOGOUT_URL
   }
   logger('info', ['soknad', 'getPartTarget', 'applicantId', applicantId])
-  reply.view('target', viewOptions)
+  return h.view('target', viewOptions)
 }
 
-module.exports.getPartCollaboration = (request, reply) => {
+module.exports.getPartCollaboration = async (request, h) => {
   const yar = request.yar
   const data = yar.get('collaboration') || {}
   const inProgress = yar.get('inProgress')
@@ -165,10 +163,10 @@ module.exports.getPartCollaboration = (request, reply) => {
     logoutUrl: config.AUTH_LOGOUT_URL
   }
   logger('info', ['soknad', 'getPartCollaboration', 'applicantId', applicantId])
-  reply.view('collaboration', viewOptions)
+  return h.view('collaboration', viewOptions)
 }
 
-module.exports.getPartSamarbeidsparter = (request, reply) => {
+module.exports.getPartSamarbeidsparter = async (request, h) => {
   const yar = request.yar
   const data = yar.get('samarbeidsparter') || {}
   const inProgress = yar.get('inProgress')
@@ -185,10 +183,10 @@ module.exports.getPartSamarbeidsparter = (request, reply) => {
     logoutUrl: config.AUTH_LOGOUT_URL
   }
   logger('info', ['soknad', 'getPartSamarbeidsparter', 'applicantId', applicantId])
-  reply.view('samarbeidsparter', viewOptions)
+  return h.view('samarbeidsparter', viewOptions)
 }
 
-module.exports.getPartArtform = (request, reply) => {
+module.exports.getPartArtform = async (request, h) => {
   const yar = request.yar
   const data = yar.get('artform') || {}
   const inProgress = yar.get('inProgress')
@@ -205,10 +203,10 @@ module.exports.getPartArtform = (request, reply) => {
     logoutUrl: config.AUTH_LOGOUT_URL
   }
   logger('info', ['soknad', 'getPartArtform', 'applicantId', applicantId])
-  reply.view('artform', viewOptions)
+  return h.view('artform', viewOptions)
 }
 
-module.exports.getPartKategorier = (request, reply) => {
+module.exports.getPartKategorier = async (request, h) => {
   const yar = request.yar
   const inProgress = yar.get('inProgress')
   const artform = yar.get('artform')
@@ -231,10 +229,10 @@ module.exports.getPartKategorier = (request, reply) => {
     categories: categories
   }
   logger('info', ['soknad', 'getPartKategorier', 'applicantId', applicantId, 'categoryType', categoryType])
-  reply.view('kategorier', viewOptions)
+  return h.view('kategorier', viewOptions)
 }
 
-module.exports.getPartPartners = (request, reply) => {
+module.exports.getPartPartners = async (request, h) => {
   const yar = request.yar
   const inProgress = yar.get('inProgress')
   const data = yar.get('partners') || {}
@@ -251,10 +249,10 @@ module.exports.getPartPartners = (request, reply) => {
     logoutUrl: config.AUTH_LOGOUT_URL
   }
   logger('info', ['soknad', 'getPartPartners', 'applicantId', applicantId])
-  reply.view('partners', viewOptions)
+  return h.view('partners', viewOptions)
 }
 
-module.exports.getPartTiltak = (request, reply) => {
+module.exports.getPartTiltak = async (request, h) => {
   const yar = request.yar
   const data = yar.get('tiltak') || {}
   const inProgress = yar.get('inProgress')
@@ -271,10 +269,10 @@ module.exports.getPartTiltak = (request, reply) => {
     logoutUrl: config.AUTH_LOGOUT_URL
   }
   logger('info', ['soknad', 'getPartTiltak', 'applicantId', applicantId])
-  reply.view('tiltak', viewOptions)
+  return h.view('tiltak', viewOptions)
 }
 
-module.exports.getPartBidrag = (request, reply) => {
+module.exports.getPartBidrag = async (request, h) => {
   const yar = request.yar
   const data = yar.get('bidrag') || {}
   const inProgress = yar.get('inProgress')
@@ -291,10 +289,10 @@ module.exports.getPartBidrag = (request, reply) => {
     logoutUrl: config.AUTH_LOGOUT_URL
   }
   logger('info', ['soknad', 'getPartBidrag', 'applicantId', applicantId])
-  reply.view('bidrag', viewOptions)
+  return h.view('bidrag', viewOptions)
 }
 
-module.exports.getPartSeover = (request, reply) => {
+module.exports.getPartSeover = async (request, h) => {
   const yar = request.yar
   const inProgress = yar.get('inProgress')
   const applicantId = yar.get('applicantId')
@@ -311,10 +309,10 @@ module.exports.getPartSeover = (request, reply) => {
     document: document
   }
   logger('info', ['soknad', 'getPartSeover', 'applicantId', applicantId])
-  reply.view('seover', viewOptions)
+  return h.view('seover', viewOptions)
 }
 
-module.exports.getPartFinanser = (request, reply) => {
+module.exports.getPartFinanser = async (request, h) => {
   const yar = request.yar
   const data = yar.get('finanser') || {}
   const inProgress = yar.get('inProgress')
@@ -331,10 +329,10 @@ module.exports.getPartFinanser = (request, reply) => {
     logoutUrl: config.AUTH_LOGOUT_URL
   }
   logger('info', ['soknad', 'getPartFinanser', 'applicantId', applicantId])
-  reply.view('finanser', viewOptions)
+  return h.view('finanser', viewOptions)
 }
 
-module.exports.getPartKvittering = (request, reply) => {
+module.exports.getPartKvittering = async (request, h) => {
   const yar = request.yar
   const applicantId = yar.get('applicantId')
   const document = prepareSoknad(request)
@@ -350,18 +348,18 @@ module.exports.getPartKvittering = (request, reply) => {
 
   yar.reset()
   logger('info', ['soknad', 'getPartKvittering', 'applicantId', applicantId])
-  reply.view('kvittering', viewOptions)
+  return h.view('kvittering', viewOptions)
 }
 
-module.exports.doCleanup = (request, reply) => {
+module.exports.doCleanup = async (request, h) => {
   const yar = request.yar
   const applicantId = yar.get('applicantId')
   yar.reset()
   logger('info', ['soknad', 'doCleanup', 'applicantId', applicantId])
-  reply.redirect('/')
+  return h.redirect('/')
 }
 
-module.exports.doSubmit = async (request, reply) => {
+module.exports.doSubmit = async (request, h) => {
   const yar = request.yar
   const applicantId = yar.get('applicantId')
   const document = prepareSoknad(request)
@@ -369,9 +367,9 @@ module.exports.doSubmit = async (request, reply) => {
   try {
     await saveApplication(document)
     logger('info', ['soknad', 'doSubmit', applicantId, 'success'])
-    reply.redirect('/kvittering')
+    return h.redirect('/kvittering')
   } catch (error) {
     logger('error', ['soknad', 'doSubmit', applicantId, error])
-    reply.redirect('/feil')
+    return h.redirect('/feil')
   }
 }

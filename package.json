@@ -9,7 +9,7 @@
     "email": "geir.gasodden@pythonia.no",
     "url": "https://github.com/zrrrzzt"
   },
-  "main": "index.js",
+  "main": "server.js",
   "engines": {
     "node": ">=10.11.0"
   },
@@ -19,8 +19,8 @@
     "coverage": "tap test/**/*.js --coverage",
     "coveralls": "tap --cov --coverage-report=lcov test/**/*.js && cat coverage/lcov.info | coveralls",
     "standard-fix": "standard --fix",
-    "start": "node standalone.js",
-    "dev": "NODE_ENV=development node standalone.js",
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js",
     "deploy": "npm test && now && now alias",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm install"
   },
@@ -55,18 +55,18 @@
   },
   "dependencies": {
     "axios": "0.18.0",
-    "blankie": "3.0.1",
+    "blankie": "4.0.0",
     "handlebars": "4.0.12",
-    "hapi": "16.6.3",
-    "hapi-auth-cookie": "7.1.0",
-    "hapi-auth-jwt2": "7.4.1",
-    "inert": "4.2.1",
+    "hapi": "17.6.0",
+    "hapi-auth-cookie": "9.0.0",
+    "hapi-auth-jwt2": "8.1.0",
+    "inert": "5.1.0",
     "jsonwebtoken": "8.3.0",
-    "scooter": "4.0.0",
+    "scooter": "5.0.0",
     "simple-encryptor": "2.0.0",
-    "vision": "4.1.1",
+    "vision": "5.4.0",
     "winston": "2.4.4",
     "winston-papertrail": "1.0.5",
-    "yar": "8.1.2"
+    "yar": "9.0.2"
   }
 }

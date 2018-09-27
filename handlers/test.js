@@ -1,11 +1,9 @@
-'use strict'
-
 const config = require('../config')
 const pkg = require('../package.json')
 const buildTestdata = require('../lib/build-testdata')
 const buildTestJwt = require('../lib/build-test-jwt')
 
-module.exports.showTestPage = (request, reply) => {
+module.exports.showTestPage = async (request, h) => {
   const viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
@@ -15,20 +13,18 @@ module.exports.showTestPage = (request, reply) => {
     logoutUrl: config.AUTH_LOGOUT_URL
   }
 
-  reply.view('test', viewOptions)
+  return h.view('test', viewOptions)
 }
 
-module.exports.setupTestData = (request, reply) => {
+module.exports.setupTestData = async (request, h) => {
   const payload = request.payload
   const data = buildTestdata(payload)
   const jwt = buildTestJwt(data)
   const url = `/start?jwt=${jwt}`
 
-  reply.redirect(url)
+  return h.redirect(url)
 }
 
-module.exports.testPing = (request, reply) => {
-  request.seneca.act('role: test, cmd: ping', (error, msg) => {
-    reply(error || msg)
-  })
+module.exports.testPing = async (request, h) => {
+  return h({ result: 'pong' })
 }

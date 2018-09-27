@@ -1,5 +1,3 @@
-'use strict'
-
 const handler = require('../handlers/soknad')
 
 module.exports = [

@@ -1,5 +1,3 @@
-'use strict'
-
 const jwt = require('jsonwebtoken')
 const config = require('../config')
 const encryptor = require('simple-encryptor')(config.ENCRYPTOR_SECRET)
@@ -9,7 +7,7 @@ const repackKontaktinfo = require('../lib/repack-kontaktinfo')
 const generateApplicantId = require('../lib/generate-applicant-id')
 const logger = require('../lib/logger')
 
-module.exports.showFrontpage = (request, reply) => {
+module.exports.showFrontpage = async (request, h) => {
   const yar = request.yar
   const inProgress = yar.get('inProgress') || ''
   const viewOptions = {
@@ -23,10 +21,10 @@ module.exports.showFrontpage = (request, reply) => {
 
   logger('info', ['index', 'showFrontpage'])
 
-  reply.view('index', viewOptions)
+  return h.view('index', viewOptions)
 }
 
-module.exports.showKontaktpage = (request, reply) => {
+module.exports.showKontaktpage = async (request, h) => {
   const yar = request.yar
   const inProgress = yar.get('inProgress') || ''
   const viewOptions = {
@@ -40,10 +38,10 @@ module.exports.showKontaktpage = (request, reply) => {
 
   logger('info', ['index', 'showKontaktpage'])
 
-  reply.view('kontakt', viewOptions)
+  return h.view('kontakt', viewOptions)
 }
 
-module.exports.showPersonvernpage = (request, reply) => {
+module.exports.showPersonvernpage = async (request, h) => {
   const yar = request.yar
   const inProgress = yar.get('inProgress') || ''
   const viewOptions = {
@@ -57,10 +55,10 @@ module.exports.showPersonvernpage = (request, reply) => {
 
   logger('info', ['index', 'showPersonvernpage'])
 
-  reply.view('personvern', viewOptions)
+  return h.view('personvern', viewOptions)
 }
 
-module.exports.showTilskuddpage = (request, reply) => {
+module.exports.showTilskuddpage = async (request, h) => {
   const yar = request.yar
   const inProgress = yar.get('inProgress') || ''
   const viewOptions = {
@@ -74,10 +72,10 @@ module.exports.showTilskuddpage = (request, reply) => {
 
   logger('info', ['index', 'showTilskuddpage'])
 
-  reply.view('tilskuddsordningene', viewOptions)
+  return h.view('tilskuddsordningene', viewOptions)
 }
 
-module.exports.showIkkefunnetpage = (request, reply) => {
+module.exports.showIkkefunnetpage = async (request, h) => {
   const yar = request.yar
   const inProgress = yar.get('inProgress') || ''
   const viewOptions = {
@@ -91,10 +89,10 @@ module.exports.showIkkefunnetpage = (request, reply) => {
 
   logger('warn', ['index', 'showIkkefunnetpage'])
 
-  reply.view('ikkefunnet', viewOptions)
+  return h.view('ikkefunnet', viewOptions)
 }
 
-module.exports.showOrganisasjonsnummerpage = (request, reply) => {
+module.exports.showOrganisasjonsnummerpage = async (request, h) => {
   const yar = request.yar
   const inProgress = yar.get('inProgress') || ''
   const viewOptions = {
@@ -108,10 +106,10 @@ module.exports.showOrganisasjonsnummerpage = (request, reply) => {
 
   logger('info', ['index', 'showOrganisasjonsnummerPage'])
 
-  reply.view('organisasjonsnummer', viewOptions)
+  return h.view('organisasjonsnummer', viewOptions)
 }
 
-module.exports.start = async (request, reply) => {
+module.exports.start = async (request, h) => {
   logger('info', ['index', 'start', 'start'])
   const yar = request.yar
   const receivedToken = request.query.jwt
@@ -144,7 +142,7 @@ module.exports.start = async (request, reply) => {
 
   if (trouble) {
     logger('error', ['index', 'start', applicantId, 'missing required data'])
-    reply.redirect('/ikkefunnet')
+    return h.redirect('/ikkefunnet')
   } else {
     request.cookieAuth.set({
       token: token,
@@ -159,11 +157,11 @@ module.exports.start = async (request, reply) => {
 
     logger('info', ['index', 'start', applicantId, 'success'])
 
-    reply.redirect('/organisasjon')
+    return h.redirect('/organisasjon')
   }
 }
 
-module.exports.doLogout = (request, reply) => {
+module.exports.doLogout = async (request, h) => {
   const yar = request.yar
   const applicantId = yar.get('applicantId')
   logger('info', ['index', 'doLogout', applicantId])
@@ -171,5 +169,5 @@ module.exports.doLogout = (request, reply) => {
 
   request.cookieAuth.clear()
 
-  reply.redirect(config.AUTH_LOGOUT_URL)
+  return h.redirect(config.AUTH_LOGOUT_URL)
 }

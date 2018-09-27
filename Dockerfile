@@ -7,4 +7,4 @@ COPY . .
 FROM mhart/alpine-node:base-10
 WORKDIR /usr/src
 COPY --from=base /usr/src .
-CMD ["node", "./standalone.js"]
+CMD ["node", "./server.js"]

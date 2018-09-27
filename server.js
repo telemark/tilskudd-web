@@ -1,18 +1,22 @@
 const Hapi = require('hapi')
-const Blankie = require('blankie')
-const Scooter = require('scooter')
-const Yar = require('yar')
-const hapiAuthCookie = require('hapi-auth-cookie')
-const hapiAuthJwt2 = require('hapi-auth-jwt2')
-const vision = require('vision')
-const inert = require('inert')
-const server = new Hapi.Server()
+const routes = require('./routes')
+const testRoutes = require('./routes/test')
+const soknadRoutes = require('./routes/soknad')
 const config = require('./config')
-const tilskuddService = require('./index')
-const validateSession = require('./lib/validate-session')
 const validateApi = require('./lib/validate-api')
 const logger = require('./lib/logger')
 
+// Create a server with a host and port
+const server = Hapi.server({
+  port: 8000
+})
+
+// Add the routes
+server.route(routes)
+server.route(testRoutes)
+server.route(soknadRoutes)
+
+// Plugin options
 const blankieOptions = {
   styleSrc: ['https://fonts.googleapis.com', 'https://code.getmdl.io', 'unsafe-inline', 'self'],
   fontSrc: 'https://fonts.gstatic.com self',
@@ -30,37 +34,19 @@ const yarOptions = {
   }
 }
 
-server.connection({
-  port: config.WEB_SERVER_PORT
-})
-
 const plugins = [
-  { register: Scooter },
-  { register: Blankie, options: blankieOptions },
-  { register: Yar, options: yarOptions },
-  { register: vision },
-  { register: inert },
-  { register: hapiAuthCookie },
-  { register: hapiAuthJwt2 }
+  { plugin: require('scooter') },
+  { plugin: require('blankie'), options: blankieOptions },
+  { plugin: require('hapi-auth-cookie') },
+  { plugin: require('hapi-auth-jwt2') },
+  { plugin: require('vision') },
+  { plugin: require('inert') },
+  { plugin: require('yar'), options: yarOptions }
 ]
 
-server.register(plugins, error => {
-  if (error) {
-    logger('error', ['server', 'register', 'plugins', error])
-  }
-
-  server.views({
-    engines: {
-      html: require('handlebars')
-    },
-    relativeTo: __dirname,
-    path: 'views',
-    helpersPath: 'views/helpers',
-    partialsPath: 'views/partials',
-    layoutPath: 'views/layouts',
-    layout: true,
-    compileMode: 'sync'
-  })
+// Start the server
+async function start () {
+  await server.register(plugins)
 
   server.route({
     method: 'GET',
@@ -70,15 +56,26 @@ server.register(plugins, error => {
         path: 'public'
       }
     },
-    config: {
+    options: {
       auth: false
     }
+  })
+
+  server.views({
+    engines: {
+      html: require('handlebars')
+    },
+    relativeTo: __dirname,
+    path: 'templates',
+    layout: true,
+    layoutPath: 'templates/layouts',
+    helpersPath: 'templates/helpers',
+    partialsPath: 'templates/partials'
   })
 
   server.auth.strategy('session', 'cookie', {
     password: config.COOKIE_SECRET,
     cookie: 'tilskudd-session',
-    validateFunc: validateSession,
     redirectTo: config.AUTH_LOGIN_URL,
     isSecure: process.env.NODE_ENV !== 'development',
     isSameSite: 'Lax'
@@ -87,35 +84,15 @@ server.register(plugins, error => {
   server.auth.default('session')
 
   server.auth.strategy('jwt', 'jwt', {
-    key: config.JWT_SECRET, // Never Share your secret key
-    validateFunc: validateApi, // validate function defined above
-    verifyOptions: { algorithms: [ 'HS256' ] } // pick a strong algorithm
+    key: config.JWT_SECRET,
+    validate: validateApi,
+    verifyOptions: { algorithms: [ 'HS256' ] }
   })
 
-  registerRoutes()
+  await server.start()
+  logger('info', ['server', 'Server running', server.info.uri])
+}
+
+start().catch(error => {
+  logger('error', ['server', error])
 })
-
-function registerRoutes () {
-  server.register([
-    {
-      register: tilskuddService,
-      options: {}
-    }
-  ], function (error) {
-    if (error) {
-      logger('error', ['server', 'registerRoutes', error])
-    }
-  })
-}
-
-module.exports.start = () => {
-  server.start(() => {
-    logger('info', ['server', 'start', server.info.uri])
-  })
-}
-
-module.exports.stop = () => {
-  server.stop(() => {
-    logger('info', 'server', 'stop', 'server stopped')
-  })
-}

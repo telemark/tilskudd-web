@@ -1,7 +1,5 @@
-'use strict'
-
 const tap = require('tap')
-const hideMe = require('../../views/helpers/hide-me')
+const hideMe = require('../../templates/helpers/hide-me')
 
 tap.equal(hideMe(), 'show-me', 'If undefined show-me')
 

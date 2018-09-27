@@ -1,7 +1,5 @@
-'use strict'
-
 const tap = require('tap')
-const showMe = require('../../views/helpers/show-me')
+const showMe = require('../../templates/helpers/show-me')
 
 tap.equal(showMe(), 'invisible', 'If undefined invisible')
 
