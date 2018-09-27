@@ -5,6 +5,9 @@
   ],
   "type": "docker",
   "dotenv": "production.env",
+  "limits": {
+    "timeout": 9000000
+  },
   "features": {
     "cloud": "v2"
   }
