@@ -1,14 +1,11 @@
 {
   "name": "tilskudd-web",
   "alias": [
-    "tilskudd.tjeneste.win"
+    "tilskudd.t-fk.no"
   ],
   "type": "docker",
   "dotenv": "production.env",
-  "limits": {
-    "timeout": 900000
-  },
   "features": {
-    "cloud": "v2"
+    "cloud": "v1"
   }
 }
