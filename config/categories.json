@@ -81,6 +81,16 @@
       "description": "Talentutvikling"
     }
   ],
+  "Kulturarv": [
+    {
+      "id":"601",
+      "description": "Seminar"
+    },
+    {
+      "id":"602",
+      "description": "Publikasjon"
+    }
+  ],
   "Idrett": [
     {
       "id":"701",
