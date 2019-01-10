@@ -62,7 +62,7 @@
     "hapi-auth-jwt2": "8.2.0",
     "inert": "5.1.2",
     "jsonwebtoken": "8.4.0",
-    "scooter": "5.0.1",
+    "scooter": "5.0.2",
     "simple-encryptor": "2.0.0",
     "vision": "5.4.4",
     "winston": "2.4.4",
