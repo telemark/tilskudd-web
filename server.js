@@ -1,4 +1,4 @@
-const Hapi = require('hapi')
+const Hapi = require('@hapi/hapi')
 const routes = require('./routes')
 const testRoutes = require('./routes/test')
 const soknadRoutes = require('./routes/soknad')
@@ -39,8 +39,8 @@ const plugins = [
   { plugin: require('blankie'), options: blankieOptions },
   { plugin: require('hapi-auth-cookie') },
   { plugin: require('hapi-auth-jwt2') },
-  { plugin: require('vision') },
-  { plugin: require('inert') },
+  { plugin: require('@hapi/vision') },
+  { plugin: require('@hapi/inert') },
   { plugin: require('yar'), options: yarOptions }
 ]
 
