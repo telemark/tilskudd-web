@@ -74,11 +74,13 @@ async function start () {
   })
 
   server.auth.strategy('session', 'cookie', {
-    password: config.COOKIE_SECRET,
-    cookie: 'tilskudd-session',
-    redirectTo: config.AUTH_LOGIN_URL,
-    isSecure: process.env.NODE_ENV !== 'development',
-    isSameSite: 'Lax'
+    cookie: {
+      name: 'tilskudd-session',
+      password: config.COOKIE_SECRET,
+      isSecure: process.env.NODE_ENV !== 'development',
+      isSameSite: 'Lax'
+    },
+    redirectTo: `${config.AUTH_LOGIN_URL}`
   })
 
   server.auth.default('session')
