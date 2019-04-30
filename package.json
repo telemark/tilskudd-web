@@ -64,7 +64,7 @@
     "hapi-auth-jwt2": "8.4.0",
     "jsonwebtoken": "8.5.1",
     "scooter": "5.0.2",
-    "simple-encryptor": "2.0.0",
+    "simple-encryptor": "3.0.0",
     "winston": "2.4.4",
     "winston-papertrail": "1.0.5",
     "yar": "9.1.0"
