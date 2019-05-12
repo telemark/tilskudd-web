@@ -35,7 +35,7 @@ const yarOptions = {
 }
 
 const plugins = [
-  { plugin: require('scooter') },
+  { plugin: require('@hapi/scooter') },
   { plugin: require('blankie'), options: blankieOptions },
   { plugin: require('hapi-auth-cookie') },
   { plugin: require('hapi-auth-jwt2') },
