@@ -51,7 +51,7 @@
   "devDependencies": {
     "coveralls": "3.0.3",
     "standard": "12.0.1",
-    "tap": "14.1.7"
+    "tap": "14.2.0"
   },
   "dependencies": {
     "@hapi/hapi": "18.3.1",
