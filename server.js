@@ -88,7 +88,7 @@ async function start () {
   server.auth.strategy('jwt', 'jwt', {
     key: config.JWT_SECRET,
     validate: validateApi,
-    verifyOptions: { algorithms: [ 'HS256' ] }
+    verifyOptions: { algorithms: ['HS256'] }
   })
 
   await server.start()

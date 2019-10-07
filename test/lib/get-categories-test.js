@@ -4,16 +4,16 @@ const tap = require('tap')
 const getCategories = require('../../lib/get-categories')
 const expectedCategories = [
   {
-    'id': '101',
-    'description': 'Utstilling'
+    id: '101',
+    description: 'Utstilling'
   },
   {
-    'id': '102',
-    'description': 'Seminar'
+    id: '102',
+    description: 'Seminar'
   },
   {
-    'id': '103',
-    'description': 'Publikasjon'
+    id: '103',
+    description: 'Publikasjon'
   }
 ]
 

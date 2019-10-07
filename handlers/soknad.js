@@ -28,7 +28,7 @@ module.exports.getNextStep = async (request, h) => {
 
   if (payload) {
     logger('info', ['soknad', 'getNextStep', 'applicantId', applicantId, 'payload', payload.stepName])
-    let completedSteps = yar.get('completedSteps') || []
+    const completedSteps = yar.get('completedSteps') || []
     completedSteps.push(payload.stepName)
     yar.set(payload.stepName, payload)
     yar.set('completedSteps', completedSteps)
@@ -54,7 +54,7 @@ module.exports.getNextStep = async (request, h) => {
 module.exports.getPreviousStep = async (request, h) => {
   const yar = request.yar
   const applicantId = yar.get('applicantId')
-  let completedSteps = yar.get('completedSteps')
+  const completedSteps = yar.get('completedSteps')
   logger('info', ['soknad', 'getPreviousStep', 'applicantId', applicantId, 'completedSteps', completedSteps])
   if (completedSteps) {
     const previousStep = completedSteps.pop()

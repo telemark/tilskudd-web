@@ -9,7 +9,7 @@ const request = {
     'user-agent': 'cheezdoodle 7.8'
   },
   yar: {
-    '_store': data
+    _store: data
   }
 }
 const document = prepareDataForSubmit(request)
