@@ -209,11 +209,11 @@ module.exports.getPartArtform = async (request, h) => {
 module.exports.getPartKategorier = async (request, h) => {
   const yar = request.yar
   const inProgress = yar.get('inProgress')
-  const artform = yar.get('artform')
   const formal = yar.get('formal')
   const isFolkehelse = /folkehelse/.test(formal.formal)
   const isIdrett = /idrett/.test(formal.formal)
-  const categoryType = isFolkehelse ? 'Folkehelse' : isIdrett ? 'Idrett' : artform.artform
+  const isKultur = /kultur/.test(formal.formal)
+  const categoryType = isFolkehelse || isKultur || isIdrett
   const data = yar.get('kategorier') || {}
   const categories = getCategories(categoryType)
   const applicantId = yar.get('applicantId')
