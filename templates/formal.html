@@ -5,8 +5,9 @@
         <fieldset class="fieldset">
             <legend>Hvilken tilskuddsordning søker du på?</legend>
             <div>Er du usikker så les på <a href="/tilskuddsordningene">om tilskuddsordningene</a></div>
-            <input type="radio" name="formal" value="Tilskudd til arrangementer og tiltak innen kultur og idrett" id="formalRadio01" required {{radio-is-checked 'Tilskudd til arrangementer og tiltak innen kultur og idrett' data.formal}}><label for="formalRadio01">Tilskudd til arrangementer og tiltak innen kultur og idrett</label><br/>
-            <input type="radio" name="formal" value="Tilskudd til frivillige organisasjoner til folkehelsearbeid" id="formalRadio02" {{radio-is-checked 'Tilskudd til frivillige organisasjoner til folkehelsearbeid' data.formal}}><label for="formalRadio02">Tilskudd til frivillige organisasjoner til folkehelsearbeid</label><br/>
+            <input type="radio" name="formal" value="Tilskudd til arrangementer og tiltak innen kultur" id="formalRadio01" required {{radio-is-checked 'Tilskudd til arrangementer og tiltak innen kultur' data.formal}}><label for="formalRadio01">Tilskudd til arrangementer og tiltak innen kultur</label><br/>
+            <input type="radio" name="formal" value="Tilskudd til arrangementer og tiltak innen idrett" id="formalRadio02" {{radio-is-checked 'Tilskudd til arrangementer og tiltak innen idrett' data.formal}}><label for="formalRadio02">Tilskudd til arrangementer og tiltak innen idrett</label><br/>
+            <input type="radio" name="formal" value="Tilskudd til frivillige organisasjoner til folkehelsearbeid" id="formalRadio03" {{radio-is-checked 'Tilskudd til frivillige organisasjoner til folkehelsearbeid' data.formal}}><label for="formalRadio03">Tilskudd til frivillige organisasjoner til folkehelsearbeid</label><br/>
         </fieldset>
         {{{show-breadcrumbs crumbs}}}
         {{>bottom-buttons}}

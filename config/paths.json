@@ -12,10 +12,6 @@
     "name": "Ordning"
   },
   {
-    "id": "artform",
-    "name": "Kategori"
-  },
-  {
     "id": "kategorier",
     "name": "Beskrivelse"
   },

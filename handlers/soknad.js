@@ -212,7 +212,8 @@ module.exports.getPartKategorier = async (request, h) => {
   const artform = yar.get('artform')
   const formal = yar.get('formal')
   const isFolkehelse = /folkehelse/.test(formal.formal)
-  const categoryType = isFolkehelse ? 'Folkehelse' : artform.artform
+  const isIdrett = /idrett/.test(formal.formal)
+  const categoryType = isFolkehelse ? 'Folkehelse' : isIdrett ? 'Idrett' : artform.artform
   const data = yar.get('kategorier') || {}
   const categories = getCategories(categoryType)
   const applicantId = yar.get('applicantId')
