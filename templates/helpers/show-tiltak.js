@@ -12,7 +12,6 @@ module.exports = (document) => {
   const tiltak = document.tiltak
   const finanser = document.finanser
   const isFolkehelse = /folkehelse/.test(document.formal.formal)
-  const isKultur = /kultur/.test(document.formal.formal)
   const isIdrett = /idrett/.test(document.formal.formal)
   var output = []
 
