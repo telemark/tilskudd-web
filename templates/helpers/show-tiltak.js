@@ -11,6 +11,9 @@ function getSubCategory (data) {
 module.exports = (document) => {
   const tiltak = document.tiltak
   const finanser = document.finanser
+  const isFolkehelse = /folkehelse/.test(document.formal.formal)
+  const isKultur = /kultur/.test(document.formal.formal)
+  const isIdrett = /idrett/.test(document.formal.formal)
   var output = []
 
   output.push(`Navn: ${tiltak.navn}`)
@@ -27,12 +30,12 @@ module.exports = (document) => {
     }
   }
 
-  if (/folkehelse/.test(document.formal.formal)) {
+  if (isFolkehelse) {
     output.push(`Kategori: ${getSubCategory(document.kategorier.beskrivelse)}`)
   }
 
-  if (/kultur/.test(document.formal.formal)) {
-    output.push(`Kategori: ${document.artform.artform} - ${getSubCategory(document.kategorier.beskrivelse)}`)
+  if (isIdrett || isKultur) {
+    output.push(`Kategori:  ${getSubCategory(document.kategorier.beskrivelse)}`)
   }
 
   output.push(`Beskrivelse: ${tiltak.beskrivelse}`)
