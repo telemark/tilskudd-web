@@ -34,7 +34,7 @@ module.exports = (document) => {
     output.push(`Kategori: ${getSubCategory(document.kategorier.beskrivelse)}`)
   }
 
-  if (isIdrett || isKultur) {
+  if (isIdrett) {
     output.push(`Kategori:  ${getSubCategory(document.kategorier.beskrivelse)}`)
   }
 
