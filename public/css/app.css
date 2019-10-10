@@ -67,3 +67,7 @@ a.logo-link {
     background-color: #ffd520;
     color: black;
 }
+
+.warning {
+    color: #e30438;
+}
