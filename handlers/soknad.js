@@ -210,9 +210,9 @@ module.exports.getPartKategorier = async (request, h) => {
   const yar = request.yar
   const inProgress = yar.get('inProgress')
   const formal = yar.get('formal')
-  const isFolkehelse = /folkehelse/.test(formal.formal)
-  const isIdrett = /idrett/.test(formal.formal)
-  const isKultur = /kultur/.test(formal.formal)
+  const isFolkehelse = /folkehelse/.test(formal.formal) ? 'Folkehelse' : false
+  const isIdrett = /idrett/.test(formal.formal) ? 'Idrett' : false
+  const isKultur = /kultur/.test(formal.formal) ? 'Kultur' : false
   const categoryType = isFolkehelse || isKultur || isIdrett
   const data = yar.get('kategorier') || {}
   const categories = getCategories(categoryType)
