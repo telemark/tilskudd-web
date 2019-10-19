@@ -27,7 +27,7 @@ PAPERTRAIL_PORT=@tfk-papertrail-port
 Run deployment script.
 
 ```
-$ npm run now-deploy
+$ npm run deploy
 ```
 
 Alias the deployment
