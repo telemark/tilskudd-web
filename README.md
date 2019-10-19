@@ -24,17 +24,46 @@ PAPERTRAIL_HOST=@tfk-papertrail-host
 PAPERTRAIL_PORT=@tfk-papertrail-port
 ```
 
-Setup now:alias in [package.json](package.json)
-
 Run deployment script.
 
 ```
 $ npm run now-deploy
 ```
 
+Alias the deployment
+
+```
+$ now alias [CTRL+V] [new url]
+```
+
+## Development
+
+Add a local `.env` file
+
+```
+NODE_ENV=development
+WEB_SERVER_PORT=8000
+COOKIE_SECRET=cookie-secret
+ENCRYPTOR_SECRET=encryptor-secret
+JWT_SECRET=jwt-secret
+YAR_SECRET=session-secret
+AUTH_LOGIN_URL=auth-login-url
+AUTH_LOGOUT_URL=auth-logout-url
+QUEUE_SERVICE=queue-service-url
+```
+
+Start the development server
+
+```
+$ npm run dev
+```
+
 ## Related
 - [micro-logs-main](https://github.com/telemark/micro-logs-main) log/queue microservice
 - [tilskudd-logs-stats](https://github.com/telemark/tilskudd-logs-stats) stats microservice
+- [tilskudd-dashboard](https://github.com/telemark/tilskudd-dashboard) dashboard using the stats service
+- [idporten-info-router](https://github.com/telemark) service for enriching logins from id-porten with data
+- [hapi-auth-saml-idporten](https://github.com/telemark/hapi-auth-saml-idporten) auth service for id-porten
 
 ## License
 
